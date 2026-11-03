@@ -72,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onOpenQuickCreate }) => {
             {/* Subtle demo badge */}
             <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#F2F5F0] dark:bg-[#1B293C] text-[11px] text-[#556980] dark:text-[#94A3B8] border border-[#E0E7DC] dark:border-[#283C55]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D6A85C]" />
-              <span>Ambiente Interativo 0.2.1</span>
+              <span>Ambiente Interativo 0.3</span>
             </div>
 
             {/* Theme Toggle */}

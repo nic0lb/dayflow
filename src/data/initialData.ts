@@ -8,11 +8,13 @@ import {
   QuickNote,
 } from '../types/dayflow';
 
+import avatarImg from '../assets/images/avatar_user_profile_1793714026965.jpg';
+
 export const INITIAL_USER: UserProfile = {
   id: 'usr_demo_01',
   name: 'Benício Nicolas',
   email: 'benicionicolas0@gmail.com',
-  avatarUrl: '/src/assets/images/avatar_user_profile_1793714026965.jpg',
+  avatarUrl: avatarImg,
   role: 'Membro Fundador',
   streakDays: 14,
   focusMinutesToday: 95,

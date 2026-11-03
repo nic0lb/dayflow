@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Heart, RefreshCw, Quote, Compass } from 'lucide-react';
 import { DailyInspiration } from '../../types/dayflow';
+import morningSerenityImg from '../../assets/images/morning_serenity_inspiration_1793714026476.jpg';
 
 interface InspirationCardProps {
   inspirations: DailyInspiration[];
@@ -23,7 +24,7 @@ export const InspirationCard: React.FC<InspirationCardProps> = ({
       {/* Editorial Backdrop with Soft Scrim */}
       <div className="relative h-44 sm:h-48 w-full overflow-hidden">
         <img
-          src="/src/assets/images/morning_serenity_inspiration_1793714026476.jpg"
+          src={morningSerenityImg}
           alt="Alvorada inspiradora DAYFLOW"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover transform hover:scale-102 transition-transform duration-700"

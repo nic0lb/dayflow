@@ -271,7 +271,7 @@ function DayflowDashboard() {
                 <div className="flex items-center gap-2">
                   <Compass className="w-4 h-4 text-[#176044] dark:text-[#A8D5BA]" />
                   <span>
-                    <strong>DAYFLOW 0.2.1</strong> — Organize seu tempo. Registre suas ideias. Viva seu dia.
+                    <strong>DAYFLOW 0.3</strong> — Organize seu tempo. Registre suas ideias. Viva seu dia.
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
