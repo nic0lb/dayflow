@@ -1,0 +1,6 @@
+{
+  "name": "DAYFLOW",
+  "description": "Plataforma de organização pessoal e desenvolvimento pessoal. Organize seu tempo, registre suas ideias e viva seu dia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

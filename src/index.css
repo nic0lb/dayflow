@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Manrope', sans-serif;
+
+  --color-df-green: #176044;
+  --color-df-green-hover: #134e37;
+  --color-df-green-light: #E6F0E9;
+  --color-df-green-subtle: #F0F6F2;
+  --color-df-canvas: #F7F8F4;
+  --color-df-navy: #243047;
+  --color-df-navy-soft: #334155;
+  --color-df-gold: #D6A85C;
+  --color-df-gold-light: #FBF4E7;
+  --color-df-gold-dark: #B88B42;
+
+  /* Dark Theme Tokens */
+  --color-df-dark-canvas: #101721;
+  --color-df-dark-surface: #172231;
+  --color-df-dark-surface-elevated: #1F2D40;
+  --color-df-dark-border: #2B3A50;
+  --color-df-dark-green-surface: #153228;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Base custom styles */
+body {
+  font-family: var(--font-sans);
+}
+
+/* Custom smooth transitions for theme switching */
+*, ::before, ::after {
+  border-color: currentColor;
+}
