@@ -62,7 +62,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   DAYFLOW
                 </span>
                 <span className="text-[10px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#E6F0E9] dark:bg-[#1B3528] text-[#176044] dark:text-[#A8D5BA]">
-                  v0.2
+                  v0.2.1
                 </span>
               </div>
               <p className="text-xs text-[#64748B] dark:text-[#94A3B8] font-medium leading-none mt-0.5">

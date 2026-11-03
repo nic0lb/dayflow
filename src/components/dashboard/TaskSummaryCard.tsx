@@ -132,7 +132,7 @@ export const TaskSummaryCard: React.FC<TaskSummaryCardProps> = ({
                 Prioridades Altas Pendentes
               </span>
             </div>
-            <span className="text-sm font-bold font-mono tabular-nums text-[#D6A85C]">
+            <span className="text-sm font-bold font-mono tabular-nums text-[#B88B42] dark:text-[#D6A85C]">
               {highPriorityPending}
             </span>
           </button>

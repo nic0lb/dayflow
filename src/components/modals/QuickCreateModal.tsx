@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CheckSquare, Calendar, FileText, Plus } from 'lucide-react';
+import { X, CheckSquare, Calendar, FileText, Plus, AlertCircle } from 'lucide-react';
 import { Task, AppointmentEvent, QuickNote, TaskPriority, TaskCategory } from '../../types/dayflow';
 
 interface QuickCreateModalProps {
@@ -37,6 +37,7 @@ export const QuickCreateModal: React.FC<QuickCreateModalProps> = ({
   const [eventEnd, setEventEnd] = useState('15:00');
   const [eventLocation, setEventLocation] = useState('Google Meet');
   const [eventType, setEventType] = useState<'reuniao' | 'foco' | 'pessoal' | 'saude'>('reuniao');
+  const [timeError, setTimeError] = useState<string | null>(null);
 
   // Form states - Note
   const [noteTitle, setNoteTitle] = useState('');
@@ -65,6 +66,13 @@ export const QuickCreateModal: React.FC<QuickCreateModalProps> = ({
   const handleSubmitEvent = (e: React.FormEvent) => {
     e.preventDefault();
     if (!eventTitle.trim()) return;
+
+    if (eventEnd <= eventStart) {
+      setTimeError('O horário de término deve ser posterior ao horário de início.');
+      return;
+    }
+    setTimeError(null);
+
     onAddEvent({
       title: eventTitle.trim(),
       description: eventDescription.trim() || undefined,
@@ -124,7 +132,10 @@ export const QuickCreateModal: React.FC<QuickCreateModalProps> = ({
         {/* Tab Selection */}
         <div className="flex border-b border-[#F0F2ED] dark:border-[#1F2E40] bg-[#FAFBF9] dark:bg-[#121B27] px-4 pt-2">
           <button
-            onClick={() => setActiveTab('tarefa')}
+            onClick={() => {
+              setActiveTab('tarefa');
+              setTimeError(null);
+            }}
             className={`flex items-center gap-2 px-4 py-2.5 text-xs font-semibold border-b-2 transition-all cursor-pointer ${
               activeTab === 'tarefa'
                 ? 'border-[#176044] text-[#176044] dark:text-[#A8D5BA] dark:border-[#A8D5BA]'
@@ -136,7 +147,10 @@ export const QuickCreateModal: React.FC<QuickCreateModalProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveTab('compromisso')}
+            onClick={() => {
+              setActiveTab('compromisso');
+              setTimeError(null);
+            }}
             className={`flex items-center gap-2 px-4 py-2.5 text-xs font-semibold border-b-2 transition-all cursor-pointer ${
               activeTab === 'compromisso'
                 ? 'border-[#176044] text-[#176044] dark:text-[#A8D5BA] dark:border-[#A8D5BA]'
@@ -148,7 +162,10 @@ export const QuickCreateModal: React.FC<QuickCreateModalProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveTab('anotacao')}
+            onClick={() => {
+              setActiveTab('anotacao');
+              setTimeError(null);
+            }}
             className={`flex items-center gap-2 px-4 py-2.5 text-xs font-semibold border-b-2 transition-all cursor-pointer ${
               activeTab === 'anotacao'
                 ? 'border-[#176044] text-[#176044] dark:text-[#A8D5BA] dark:border-[#A8D5BA]'
@@ -304,8 +321,13 @@ export const QuickCreateModal: React.FC<QuickCreateModalProps> = ({
                   <input
                     type="time"
                     value={eventStart}
-                    onChange={(e) => setEventStart(e.target.value)}
-                    className="w-full px-2.5 py-2 text-xs bg-[#F7F8F4] dark:bg-[#1A2534] border border-[#E0E7DC] dark:border-[#283C55] rounded-xl text-[#243047] dark:text-white"
+                    onChange={(e) => {
+                      setEventStart(e.target.value);
+                      if (timeError) setTimeError(null);
+                    }}
+                    className={`w-full px-2.5 py-2 text-xs bg-[#F7F8F4] dark:bg-[#1A2534] border ${
+                      timeError ? 'border-red-400 dark:border-red-500' : 'border-[#E0E7DC] dark:border-[#283C55]'
+                    } rounded-xl text-[#243047] dark:text-white`}
                   />
                 </div>
                 <div>
@@ -315,11 +337,23 @@ export const QuickCreateModal: React.FC<QuickCreateModalProps> = ({
                   <input
                     type="time"
                     value={eventEnd}
-                    onChange={(e) => setEventEnd(e.target.value)}
-                    className="w-full px-2.5 py-2 text-xs bg-[#F7F8F4] dark:bg-[#1A2534] border border-[#E0E7DC] dark:border-[#283C55] rounded-xl text-[#243047] dark:text-white"
+                    onChange={(e) => {
+                      setEventEnd(e.target.value);
+                      if (timeError) setTimeError(null);
+                    }}
+                    className={`w-full px-2.5 py-2 text-xs bg-[#F7F8F4] dark:bg-[#1A2534] border ${
+                      timeError ? 'border-red-400 dark:border-red-500' : 'border-[#E0E7DC] dark:border-[#283C55]'
+                    } rounded-xl text-[#243047] dark:text-white`}
                   />
                 </div>
               </div>
+
+              {timeError && (
+                <div className="p-2.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-xs flex items-center gap-2 font-medium">
+                  <AlertCircle className="w-4 h-4 shrink-0 text-red-600 dark:text-red-400" />
+                  <span>{timeError}</span>
+                </div>
+              )}
 
               <div className="grid grid-cols-2 gap-3">
                 <div>

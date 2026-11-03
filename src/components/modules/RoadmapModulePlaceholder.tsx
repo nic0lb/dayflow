@@ -153,7 +153,7 @@ export const RoadmapModulePlaceholder: React.FC<RoadmapModulePlaceholderProps> =
                 <h2 className="text-xl sm:text-2xl font-bold text-[#243047] dark:text-white">
                   {info.title}
                 </h2>
-                <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF4E8] dark:bg-[#2B2315] text-[#D6A85C] border border-[#F2E0BD] dark:border-[#4E3D21]">
+                <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF4E8] dark:bg-[#2B2315] text-[#B88B42] dark:text-[#D6A85C] border border-[#F2E0BD] dark:border-[#4E3D21]">
                   Previsto no Roadmap 0.3+
                 </span>
               </div>

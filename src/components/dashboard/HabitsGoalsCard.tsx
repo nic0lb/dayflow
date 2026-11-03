@@ -89,7 +89,7 @@ export const HabitsGoalsCard: React.FC<HabitsGoalsCardProps> = ({
                 </div>
 
                 {/* Streak Badge */}
-                <div className="flex items-center gap-1 text-xs font-mono tabular-nums text-[#D6A85C] font-semibold shrink-0">
+                <div className="flex items-center gap-1 text-xs font-mono tabular-nums text-[#B88B42] dark:text-[#D6A85C] font-semibold shrink-0">
                   <Flame className="w-3.5 h-3.5 fill-[#D6A85C]" />
                   <span>{habit.currentStreakDays}d</span>
                 </div>

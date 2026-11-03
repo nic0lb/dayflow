@@ -124,7 +124,7 @@ export const UpcomingAppointmentsCard: React.FC<UpcomingAppointmentsCardProps> =
 
                   {/* Status label if today */}
                   {isToday && (
-                    <span className="shrink-0 text-[10px] font-semibold text-[#D6A85C] uppercase tracking-wider bg-[#FBF4E7] dark:bg-[#2B2315] px-2 py-0.5 rounded">
+                    <span className="shrink-0 text-[10px] font-semibold text-[#B88B42] dark:text-[#D6A85C] uppercase tracking-wider bg-[#FBF4E7] dark:bg-[#2B2315] px-2 py-0.5 rounded">
                       Hoje
                     </span>
                   )}

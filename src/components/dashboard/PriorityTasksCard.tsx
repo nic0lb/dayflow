@@ -43,7 +43,7 @@ export const PriorityTasksCard: React.FC<PriorityTasksCardProps> = ({
   };
 
   const filteredTasks = tasks.filter((t) => {
-    if (currentFilter === 'alta') return t.priority === 'alta';
+    if (currentFilter === 'alta') return t.priority === 'alta' && !t.completed;
     if (currentFilter === 'pendentes') return !t.completed;
     if (currentFilter === 'concluidas') return t.completed;
     return true;
@@ -61,7 +61,7 @@ export const PriorityTasksCard: React.FC<PriorityTasksCardProps> = ({
   const getPriorityLabel = (priority: TaskPriority) => {
     switch (priority) {
       case 'alta':
-        return { text: 'Alta prioridade', color: 'text-[#D6A85C] dark:text-[#E2BC7A]' };
+        return { text: 'Alta prioridade', color: 'text-[#B88B42] dark:text-[#E2BC7A]' };
       case 'media':
         return { text: 'Média prioridade', color: 'text-[#556980] dark:text-[#94A3B8]' };
       case 'baixa':
@@ -118,7 +118,7 @@ export const PriorityTasksCard: React.FC<PriorityTasksCardProps> = ({
             onClick={() => setFilter('alta')}
             className={`px-2.5 py-1 rounded-md transition-colors whitespace-nowrap ${
               currentFilter === 'alta'
-                ? 'bg-white dark:bg-[#202E42] text-[#D6A85C] shadow-xs font-semibold'
+                ? 'bg-white dark:bg-[#202E42] text-[#B88B42] dark:text-[#D6A85C] shadow-xs font-semibold'
                 : 'text-[#64748B] dark:text-[#94A3B8] hover:text-[#243047] dark:hover:text-white'
             }`}
           >
