@@ -5,9 +5,8 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(({mode}) => {
   return {
-    // Configuração de base para subdiretório do GitHub Pages (ex: /dayflow/)
-    // Em produção adota '/dayflow/' por padrão, suportando override via VITE_BASE_PATH
-    base: process.env.VITE_BASE_PATH || (mode === 'production' ? '/dayflow/' : '/'),
+    // Base relativa './' funciona universalmente na publicação do AI Studio, GitHub Pages (/dayflow/) ou domínio próprio
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
